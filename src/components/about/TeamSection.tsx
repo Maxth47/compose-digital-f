@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import ScrollReveal from "../ScrollReveal";
+import SocialIcons from "../SocialIcons";
 
 const team = [
   { name: "Jane Mills", role: "Developer", image: "/images/team-1.jpg" },
@@ -40,16 +41,7 @@ export default function TeamSection() {
                 <div style={{ position: "relative", width: "100%", aspectRatio: "460 / 460", borderRadius: "10px", overflow: "hidden" }}>
                   <Image src={member.image} alt={member.name} fill className="object-cover project-image-hover" />
                 </div>
-                {/* Social icons */}
-                <div style={{ display: "flex", gap: "8px" }}>
-                  {[0, 1, 2, 3].map((i) => (
-                    <a key={i} href="#" style={{ width: "32px", height: "32px", borderRadius: "50%", border: "1px solid #d9d9d9", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
-                      <svg width="14" height="14" viewBox="0 0 256 256" fill="none">
-                        <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z" fill="#595959" />
-                      </svg>
-                    </a>
-                  ))}
-                </div>
+                <SocialIcons />
                 {/* Info */}
                 <div>
                   <h6 style={{ fontSize: "20px", fontWeight: 500, lineHeight: "24px", color: "#101010", margin: 0 }}>{member.name}</h6>

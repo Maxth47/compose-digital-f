@@ -33,6 +33,8 @@ function NavFlipLink({ href, children, active = false }: { href: string; childre
 
 export default function Navbar() {
   const pathname = usePathname();
+  const knownRoutes = ["/services", "/projects", "/about", "/blog"];
+  const isHome = !knownRoutes.includes(pathname);
   return (
     <header
       className="sticky top-0 z-50 w-full animate-fade-in"
@@ -50,7 +52,7 @@ export default function Navbar() {
           className="hidden md:flex items-center"
           style={{ backgroundColor: "#d9d9d9", borderRadius: "100px", padding: "6px", gap: "10px", height: "40px" }}
         >
-          <NavFlipLink href="/" active={pathname === "/"}>Home</NavFlipLink>
+          <NavFlipLink href="/" active={isHome}>Home</NavFlipLink>
           <NavFlipLink href="/services" active={pathname === "/services"}>Services</NavFlipLink>
           <NavFlipLink href="/projects" active={pathname === "/projects"}>Projects</NavFlipLink>
           <NavFlipLink href="/about" active={pathname === "/about"}>About</NavFlipLink>

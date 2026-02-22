@@ -1,6 +1,7 @@
 "use client";
 
 import ScrollReveal from "../ScrollReveal";
+import SocialIcons from "../SocialIcons";
 
 export default function AboutHero() {
   return (
@@ -22,15 +23,7 @@ export default function AboutHero() {
 
         <ScrollReveal delay={0.2}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <div style={{ display: "flex", gap: "10px" }}>
-              {[0, 1, 2, 3].map((i) => (
-                <a key={i} href="#" style={{ width: "32px", height: "32px", borderRadius: "50%", border: "1px solid #d9d9d9", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
-                  <svg width="14" height="14" viewBox="0 0 256 256" fill="none">
-                    <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z" fill="#595959" />
-                  </svg>
-                </a>
-              ))}
-            </div>
+            <SocialIcons />
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <p style={{ fontSize: "13px", fontWeight: 500, letterSpacing: "0.39px", textTransform: "uppercase" as const, color: "#101010" }}>
                 Scroll to Explore

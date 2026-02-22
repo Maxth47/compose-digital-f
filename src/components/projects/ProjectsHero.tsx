@@ -1,6 +1,7 @@
 "use client";
 
 import ScrollReveal from "../ScrollReveal";
+import SocialIcons from "../SocialIcons";
 
 export default function ProjectsHero() {
   return (
@@ -24,31 +25,7 @@ export default function ProjectsHero() {
         {/* Bottom row - Social icons + Scroll to explore */}
         <ScrollReveal delay={0.2}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            {/* Social icons */}
-            <div style={{ display: "flex", gap: "10px" }}>
-              {["Be", "Dri", "Ig", "Tw"].map((icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  style={{
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "50%",
-                    border: "1px solid #d9d9d9",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "12px",
-                    color: "#595959",
-                    textDecoration: "none",
-                  }}
-                >
-                  <svg width="14" height="14" viewBox="0 0 256 256" fill="none">
-                    <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z" fill="#595959" />
-                  </svg>
-                </a>
-              ))}
-            </div>
+            <SocialIcons />
 
             {/* Scroll to explore */}
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
