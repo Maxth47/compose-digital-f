@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function NavFlipLink({ href, children, active = false }: { href: string; children: string; active?: boolean }) {
   return (
@@ -31,6 +32,7 @@ function NavFlipLink({ href, children, active = false }: { href: string; childre
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
   return (
     <header
       className="sticky top-0 z-50 w-full animate-fade-in"
@@ -48,11 +50,11 @@ export default function Navbar() {
           className="hidden md:flex items-center"
           style={{ backgroundColor: "#d9d9d9", borderRadius: "100px", padding: "6px", gap: "10px", height: "40px" }}
         >
-          <NavFlipLink href="/" active>Home</NavFlipLink>
-          <NavFlipLink href="/services">Services</NavFlipLink>
-          <NavFlipLink href="/projects">Projects</NavFlipLink>
-          <NavFlipLink href="/about">About</NavFlipLink>
-          <NavFlipLink href="/blog">Blog</NavFlipLink>
+          <NavFlipLink href="/" active={pathname === "/"}>Home</NavFlipLink>
+          <NavFlipLink href="/services" active={pathname === "/services"}>Services</NavFlipLink>
+          <NavFlipLink href="/projects" active={pathname === "/projects"}>Projects</NavFlipLink>
+          <NavFlipLink href="/about" active={pathname === "/about"}>About</NavFlipLink>
+          <NavFlipLink href="/blog" active={pathname === "/blog"}>Blog</NavFlipLink>
         </nav>
 
         <div className="flex items-center" style={{ gap: "10px" }}>
