@@ -17,38 +17,54 @@ export default function Marquee() {
     "Search Engine Optimization",
   ];
 
+  const rowStyle: React.CSSProperties = {
+    display: "flex",
+    width: "100%",
+    placeItems: "center",
+    margin: 0,
+    padding: 0,
+    listStyleType: "none",
+    overflow: "hidden",
+    maskImage:
+      "linear-gradient(to right, rgba(0,0,0,0) 0%, rgb(0,0,0) 12.5%, rgb(0,0,0) 87.5%, rgba(0,0,0,0) 100%)",
+    WebkitMaskImage:
+      "linear-gradient(to right, rgba(0,0,0,0) 0%, rgb(0,0,0) 12.5%, rgb(0,0,0) 87.5%, rgba(0,0,0,0) 100%)",
+  };
+
+  const itemStyle = (isLight: boolean): React.CSSProperties => ({
+    fontSize: "54px",
+    fontWeight: 500,
+    lineHeight: "64.8px",
+    letterSpacing: "-0.54px",
+    color: isLight ? "#fcfcfc" : "#101010",
+    flexShrink: 0,
+    whiteSpace: "nowrap",
+  });
+
   return (
     <ScrollReveal distance={0} duration={0.5}>
-      <section className="py-14 bg-[#101010] overflow-hidden">
-        {/* Row 1 */}
-        <div className="overflow-hidden mb-2">
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...servicesRow1, ...servicesRow1, ...servicesRow1, ...servicesRow1].map((service, i) => (
-              <span
-                key={i}
-                className={`text-4xl md:text-5xl lg:text-[56px] font-semibold mx-8 ${
-                  i % 2 === 0 ? "text-white/20" : "text-white"
-                }`}
-              >
-                {service}
-              </span>
-            ))}
+      <section style={{ backgroundColor: "#101010", padding: "100px 40px", overflow: "hidden" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          {/* Row 1 */}
+          <div style={rowStyle}>
+            <div className="animate-marquee" style={{ display: "flex", gap: "30px", whiteSpace: "nowrap" }}>
+              {[...servicesRow1, ...servicesRow1, ...servicesRow1, ...servicesRow1].map((service, i) => (
+                <span key={i} style={itemStyle(i % 2 !== 0)}>
+                  {service}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Row 2 */}
-        <div className="overflow-hidden">
-          <div className="flex animate-marquee-slow whitespace-nowrap" style={{ animationDirection: "reverse" }}>
-            {[...servicesRow2, ...servicesRow2, ...servicesRow2, ...servicesRow2].map((service, i) => (
-              <span
-                key={i}
-                className={`text-4xl md:text-5xl lg:text-[56px] font-semibold mx-8 ${
-                  i % 2 === 0 ? "text-white/20" : "text-white"
-                }`}
-              >
-                {service}
-              </span>
-            ))}
+          {/* Row 2 */}
+          <div style={rowStyle}>
+            <div className="animate-marquee-slow" style={{ display: "flex", gap: "30px", whiteSpace: "nowrap", animationDirection: "reverse" }}>
+              {[...servicesRow2, ...servicesRow2, ...servicesRow2, ...servicesRow2].map((service, i) => (
+                <span key={i} style={itemStyle(i % 2 !== 0)}>
+                  {service}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
